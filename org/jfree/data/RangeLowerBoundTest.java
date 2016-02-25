@@ -16,21 +16,21 @@ public class RangeLowerBoundTest{
 	private double negativeInfinity = Double.NEGATIVE_INFINITY; 
 	
 
-	@Test
+	@Test (timeout = 1000)
 	public void NegativeInfinityLowerBound() {
 		range = new Range(negativeInfinity,0);
 		double actualLowerValue = range.getLowerBound();
 		double expectedLowerValue = negativeInfinity; 
 		assertEquals("Testing negative infinity for lower bound", expectedLowerValue, actualLowerValue, 0);
 	}
-	@Test 
+	@Test (timeout = 1000)
 	public void PositiveInfinityLowerBound() {
 		range = new Range(positiveInfinity, positiveInfinity); 
 		double actualLowerValue = range.getLowerBound();
 		double expectedLowerValue = positiveInfinity; 
 		assertEquals("Testing positive infinity for lower bound", expectedLowerValue, actualLowerValue, 0);
 	}
-	@Test
+	@Test (timeout = 1000)
 	public void PositiveLowerBound() {
 		range = new Range(1.5,4.5);
 		double actualLowerValue = range.getLowerBound();
@@ -38,7 +38,7 @@ public class RangeLowerBoundTest{
 		assertEquals("Testing when the lower bound is positive and less than upper bound", expectedLowerValue, actualLowerValue, 0);
 	}
 	
-	@Test
+	@Test (timeout = 1000)
 	public void NegativeLowerBound() {
 		range = new Range(-5,-2);
 		double actualLowerValue = range.getLowerBound();
@@ -46,7 +46,7 @@ public class RangeLowerBoundTest{
 		assertEquals("Testing when the lower bound is negative and less than upper bound", expectedLowerValue , actualLowerValue, 0);
 	}
 	
-	@Test
+	@Test (timeout = 1000)
 	public void ZeroLowerBound() {
 		range = new Range(0,5); 
 		double actualLowerValue = range.getLowerBound();
@@ -54,7 +54,7 @@ public class RangeLowerBoundTest{
 		assertEquals("Testing when the lower bound is zero and less than upper bound", expectedLowerValue, actualLowerValue, 0);
 	}
 	
-	@Test 
+	@Test (timeout = 1000)
 	public void SameLowerUpperBounds() {
 		range = new Range(1,1);
 		double actualLowerValue = range.getLowerBound();
