@@ -13,42 +13,59 @@ import org.junit.Test;
 
 public class DefaultKeyedValuesTest_getKey {
 
-	Mockery mockingContext;
-	KeyedValues kv;
+	DefaultKeyedValues defKVal;
 	
 	@Before
 	public void setUp() throws Exception {
-	
-		mockingContext = new Mockery();
 		
-		kv = mockingContext.mock(KeyedValues.class);
+		defKVal = new DefaultKeyedValues();
+		defKVal.addValue((Comparable<Integer>)1, 16);
+		defKVal.addValue((Comparable<Integer>)2, 4);
+		defKVal.addValue((Comparable<Integer>)3, 8);
 		
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		mockingContext = null;
-		kv = null;
 	}
 
-	@Test(expected=IndexOutOfBoundsException.class)
-	public void keyedValueIsNull() {
+	
+	/**
+	 * Test for negative index
+	 */
+	@Test(timeout = 1000, expected=IndexOutOfBoundsException.class)
+	public void indexIsNegative() {
 		
-		int item = 1;
-		
-		mockingContext.checking(new Expectations() {
-			{
-				
-			}
-		});
-		
-		//get the result of the call to getValue (should be null)
-			//Number result = defKVal.getValue(item);
-		
-		//assertEquals("getValue return value", null, result);
-		
+		Integer index = -1;
+		defKVal.getKey(index); //don't need to check return value because an exception is expected
 	}
 	
-	//TODO Can't test full branch coverage?
+	/**
+	 * Test for out of bounds index
+	 */
+	@Test(timeout = 1000, expected=IndexOutOfBoundsException.class)
+	public void indexIsOutOfBounds() {
+		
+		Integer index = 4;
+		defKVal.getKey(index); //don't need to check return value because an exception is expected
+	}
+	
+	/**
+	 * Test for valid index
+	 */
+	@Test (timeout = 1000)
+	public void indexIsValid() {
+		
+		//get the key at index 3
+		Integer index = 2;
+		Comparable<Integer> result = defKVal.getKey(index); 
+		
+		assertEquals(result, 3);
+	}
+	
+	
+	
+	
+	//TODO Can't test full branch coverage??
 
 }
