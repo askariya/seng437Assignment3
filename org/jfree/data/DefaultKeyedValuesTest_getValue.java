@@ -13,49 +13,55 @@ import org.junit.Test;
 
 public class DefaultKeyedValuesTest_getValue {
 
-	Mockery mockingContext;
-	KeyedValue kv;
 	DefaultKeyedValues defKVal;
 	
 	@Before
 	public void setUp() throws Exception {
-		mockingContext = new Mockery();
-		kv = mockingContext.mock(KeyedValue.class);
 		
 		defKVal = new DefaultKeyedValues();
+		defKVal.addValue((Comparable<Integer>)1, 16);
+		defKVal.addValue((Comparable<Integer>)2, 4);
+		defKVal.addValue((Comparable<Integer>)3, 8);
 		
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		mockingContext = null;
-		kv = null;
 	}
 
-	@Test(expected=IndexOutOfBoundsException.class)
-	public void keyedValueIsNull() {
+	
+	/**
+	 * Test for when the key is null
+	 */
+	@Test(expected=UnknownKeyException.class)
+	public void keyIsNull() {
 		
-		int item = 1;
-		
-		mockingContext.checking(new Expectations() {
-			{
-				
-			//	kv = ;
-//				one(kv).getColumnCount();
-//				will(returnValue(2));
-//				one(kv).getValue(0, 0);
-//				will(returnValue(7.5));
-				
-			}
-		});
-		
-		//get the result of the call to getValue (should be null)
-			Number result = defKVal.getValue(item);
-		
-		assertEquals("getValue return value", null, result);
-		
+		Comparable<Integer> itemKey = null;
+		defKVal.getValue(itemKey); //don't need to check return value because an exception is expected
 	}
 	
-	//TODO Can't test full branch coverage?
+	/**
+	 * Test for when the key is invalid
+	 */
+	@Test(expected=UnknownKeyException.class)
+	public void keyisInvalid(){
+		
+		Comparable<Integer> itemKey = 5;
+		defKVal.getValue(itemKey); //don't need to check return value because an exception is expected
+	}
+	
+	/**
+	 * Test for when the key is valid
+	 */
+	@Test
+	public void keyisValid(){
+		
+		Comparable<Integer> itemKey = 3;
+		Number returnValue = defKVal.getValue(itemKey); 
+		
+		assertEquals("The return value", 8.0, returnValue);
+	}
+	
+	//TODO Can't test full branch coverage??
 
 }
