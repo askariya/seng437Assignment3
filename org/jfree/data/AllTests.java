@@ -9,7 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
 		DataUtilitiesTest_CreateNumberArray.class, DataUtilitiesTest_CreateNumberArray2D.class,
 		DataUtilitiesTest_GetCumulativePercentages.class, Range_Contains_Method.class,
 		Range_getCentralValue_Method.class, Range_getUpperBound_Method.class, RangeLengthTest.class,
-		RangeLowerBoundTest.class })
+		RangeLowerBoundTest.class , RangeTest.class,RangeConstructorTest.class, RangeConstrainTest.class})
 public class AllTests {
 
 }
