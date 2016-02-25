@@ -2,11 +2,7 @@ package org.jfree.data;
 
 import static org.junit.Assert.*;
 
-import java.awt.List;
-import java.util.ArrayList;
 
-import org.jmock.Expectations;
-import org.jmock.Mockery;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
