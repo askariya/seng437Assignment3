@@ -22,7 +22,7 @@ public class DataUtilitiesTest_CreateNumberArray2D {
 	}
 	
 	
-	@Test
+	@Test (timeout = 1000)
 	public void createEmptyArray() {
 		
 		data = new double[0][0];
@@ -42,7 +42,7 @@ public class DataUtilitiesTest_CreateNumberArray2D {
 		}
 	}
 	
-	@Test
+	@Test (timeout = 1000)
 	public void createNoDecimal2DArray() {
 		
 		data = new double[][]{
@@ -66,7 +66,7 @@ public class DataUtilitiesTest_CreateNumberArray2D {
 		}
 	}
 	
-	@Test
+	@Test (timeout = 1000)
 	public void createDecimal2DArray() {
 		
 		data = new double[][]{
@@ -91,7 +91,7 @@ public class DataUtilitiesTest_CreateNumberArray2D {
 		
 	}
 	
-	@Test
+	@Test (timeout = 1000)
 	public void createNegativeValues2DArray() {
 
 		data = new double[][]{
@@ -120,7 +120,7 @@ public class DataUtilitiesTest_CreateNumberArray2D {
 	/**
 	 * Test a 1 dimensional array
 	 */
-	@Test
+	@Test (timeout = 1000)
 	public void create1DArray() {
 		data = new double[][]{{1,2,3,4,5,6,7,8,9,10}};
 		
@@ -136,6 +136,9 @@ public class DataUtilitiesTest_CreateNumberArray2D {
 			}			
 		}
 	}	
-	
+	@Test (timeout = 1000, expected=IllegalArgumentException.class)
+	public void createNull2DArray(){
+		DataUtilities.createNumberArray2D(null);
+	}
 
 }

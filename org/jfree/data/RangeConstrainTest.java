@@ -16,19 +16,19 @@ public class RangeConstrainTest {
 		range = new Range (5,10); 
 	}
 
-	@Test
+	@Test (timeout = 1000)
 	public void constrainValueWithinRange() {
 		double actual = range.constrain(7);
 		double expected = 7; 
 		assertEquals(expected, actual,0);
 	}
-	@Test
+	@Test (timeout = 1000)
 	public void constrainValueGreaterThanRange() {
 		double actual = range.constrain(11);
 		double expected = 10; 
 		assertEquals(expected, actual,0);
 	}
-	@Test
+	@Test (timeout = 1000)
 	public void constrainValueLowerThanRange() {
 		double actual = range.constrain(3);
 		double expected = 5; 

@@ -33,7 +33,7 @@ public class DefaultKeyedValuesTest_getValue {
 	/**
 	 * Test for when the key is null
 	 */
-	@Test(expected=UnknownKeyException.class)
+	@Test(timeout = 1000, expected=UnknownKeyException.class)
 	public void keyIsNull() {
 		
 		Comparable<Integer> itemKey = null;
@@ -43,7 +43,7 @@ public class DefaultKeyedValuesTest_getValue {
 	/**
 	 * Test for when the key is invalid
 	 */
-	@Test(expected=UnknownKeyException.class)
+	@Test(timeout = 1000, expected=UnknownKeyException.class)
 	public void keyisInvalid(){
 		
 		Comparable<Integer> itemKey = 5;
@@ -53,7 +53,7 @@ public class DefaultKeyedValuesTest_getValue {
 	/**
 	 * Test for when the key is valid
 	 */
-	@Test
+	@Test (timeout = 1000)
 	public void keyisValid(){
 		
 		Comparable<Integer> itemKey = 3;

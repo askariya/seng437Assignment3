@@ -12,11 +12,11 @@ public class RangeConstructorTest {
 
 	private Range range; 
 	
-	@Test
+	@Test (timeout = 1000)
 	public void ProperConstruction() {
 		range = new Range(1,3);
 	}
-	@Test(expected=IllegalArgumentException.class)
+	@Test(timeout = 1000, expected=IllegalArgumentException.class)
 	public void ImproperConstruction() {
 		range = new Range(3,1);
 	}

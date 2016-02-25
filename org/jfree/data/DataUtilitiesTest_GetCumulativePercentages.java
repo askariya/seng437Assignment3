@@ -128,5 +128,10 @@ public class DataUtilitiesTest_GetCumulativePercentages {
 
 	}
 	
+	@Test (timeout = 1000, expected=IllegalArgumentException.class)
+	public void accessNullData(){
+		DataUtilities.getCumulativePercentages(null);
+	}
+	
 	
 }

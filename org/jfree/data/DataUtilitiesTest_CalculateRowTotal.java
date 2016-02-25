@@ -31,7 +31,7 @@ public class DataUtilitiesTest_CalculateRowTotal {
 	/**
 	 * Test that row total works with normal values 
 	 */
-	@Test
+	@Test (timeout = 1000)
 	public void calculateRowTotalForTwoPositiveValues() {
 		
 		mockingContext.checking(new Expectations() {
@@ -55,7 +55,7 @@ public class DataUtilitiesTest_CalculateRowTotal {
 	/**
 	 * Test that row total works with negative values
 	 */
-	@Test
+	@Test (timeout = 1000)
 	public void calculateRowTotalForTwoNegativeValues() {
 		
 		mockingContext.checking(new Expectations() {
@@ -79,7 +79,7 @@ public class DataUtilitiesTest_CalculateRowTotal {
 	/**
 	 * Testing an invalid Values2D data object (no cols)
 	 */
-	@Test
+	@Test (timeout = 1000)
 	public void calculateRowTotalWithInvalidValues2D() {
 		mockingContext.checking(new Expectations() 
 		{
@@ -103,7 +103,7 @@ public class DataUtilitiesTest_CalculateRowTotal {
 	/**
 	 * Test when column specified is negative 
 	 */
-	@Test
+	@Test (timeout = 1000)
 	public void calculateRowTotalForNegativeRow() {
 		
 		mockingContext.checking(new Expectations() {
@@ -140,7 +140,7 @@ public class DataUtilitiesTest_CalculateRowTotal {
 	/**
 	 * Test when column specified is above the table range
 	 */
-	@Test
+	@Test (timeout = 1000)
 	public void calculateRowTotalForOutOfRangeRow() {
 		
 		mockingContext.checking(new Expectations() {{
@@ -173,8 +173,4 @@ public class DataUtilitiesTest_CalculateRowTotal {
 		// tear-down: NONE in this test method
 	}
 	
-	
-	
-	
-
 }

@@ -33,7 +33,7 @@ public class DefaultKeyedValuesTest_setValue {
 	/**
 	 * Add to a null key
 	 */
-	@Test(expected=IllegalArgumentException.class)
+	@Test(timeout = 1000, expected=IllegalArgumentException.class)
 	public void keyIsNull() {
 		
 		Comparable<Integer> itemKey = null;
@@ -43,7 +43,7 @@ public class DefaultKeyedValuesTest_setValue {
 	/**
 	 * Test for when the key is not in the data list 
 	 */
-	@Test
+	@Test (timeout = 1000)
 	public void keyDoesNotExist(){
 		
 		Comparable<Integer> itemKey = 5;
@@ -57,7 +57,7 @@ public class DefaultKeyedValuesTest_setValue {
 	/**
 	 * Test for when the key is already in the data list
 	 */
-	@Test
+	@Test (timeout = 1000)
 	public void keyExists(){
 		
 		Comparable<Integer> itemKey = 3;

@@ -22,13 +22,13 @@ public class DefaultKeyedValuesTest_getIndex {
 		dkvs = null;
 	}
 
-	@Test
+	@Test (timeout = 1000)
 	public void testUnrecognizedKey() {
 		int result = dkvs.getIndex(5);
 		assertEquals(-1, result);
 	}
 	
-	@Test
+	@Test (timeout = 1000)
 	public void testRecognizedKey() {
 		int result = dkvs.getIndex(3);
 		assertEquals(1, result);

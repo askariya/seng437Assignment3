@@ -25,19 +25,19 @@ public class DefaultKeyedValuesTest_equals {
 		dkvs = null;
 	}
 
-	@Test
+	@Test (timeout = 1000)
 	public void testSameObject() {
 		boolean result = dkvs.equals(dkvs);
-		assertEquals(true, result);
+		assertEquals("Testing equals with the same object returns true", true, result);
 	}
 	
-	@Test
+	@Test (timeout = 1000)
 	public void testDifferentObject() {
 		boolean result = dkvs.equals(10);
-		assertEquals(false, result);
+		assertEquals("Testing equals with different objects that are not the same returns fale", false, result);
 	}
 	
-	@Test
+	@Test (timeout = 1000)
 	public void testSameValues() {
 		DefaultKeyedValues defKeyValues = new DefaultKeyedValues();
 		defKeyValues.addValue((Comparable<Integer>)1, 25);
@@ -46,20 +46,20 @@ public class DefaultKeyedValuesTest_equals {
 		defKeyValues.addValue((Comparable<Integer>)6, 7);
 		defKeyValues.addValue((Comparable<Integer>)5, null);
 		boolean result = dkvs.equals(defKeyValues);
-		assertEquals(true, result);
+		assertEquals("Testing equals with objects with the same values returns true", true, result);
 	}
 	
-	@Test
-	public void testDifferentDefaultKeyedValues() {
+	@Test (timeout = 1000)
+	public void testDifferentObjectSize() {
 		DefaultKeyedValues defKeyValues = new DefaultKeyedValues();
 		defKeyValues.addValue((Comparable<Integer>)1, 25);
 		defKeyValues.addValue((Comparable<Integer>)3, 26);
 		defKeyValues.addValue((Comparable<Integer>)4, 2);
 		boolean result = dkvs.equals(defKeyValues);
-		assertEquals(false, result);
+		assertEquals("Testing equals with objects of different sizes returns false", false, result);
 	}
 	
-	@Test
+	@Test (timeout = 1000)
 	public void testSomeSimmilarValues() {
 		DefaultKeyedValues defKeyValues = new DefaultKeyedValues();
 		defKeyValues.addValue((Comparable<Integer>)1, 25);
@@ -71,7 +71,7 @@ public class DefaultKeyedValuesTest_equals {
 		assertEquals(false, result);
 	}
 	
-	@Test
+	@Test (timeout = 1000)
 	public void testSomeNullValues() {
 		DefaultKeyedValues defKeyValues = new DefaultKeyedValues();
 		defKeyValues.addValue((Comparable<Integer>)1, 25);
@@ -83,7 +83,7 @@ public class DefaultKeyedValuesTest_equals {
 		assertEquals(false, result);
 	}
 	
-	@Test
+	@Test (timeout = 1000)
 	public void testSomeSimmilarKeys() {
 		DefaultKeyedValues defKeyValues = new DefaultKeyedValues();
 		defKeyValues.addValue((Comparable<Integer>)1, 25);

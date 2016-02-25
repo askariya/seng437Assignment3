@@ -25,7 +25,7 @@ public class DataUtilitiesTest_CreateNumberArray {
 	/**
 	 * Testing empty array
 	 */
-	@Test
+	@Test (timeout = 1000)
 	public void createEmptyArray(){
 		
 		data = new double[0]; //redefine data array to be of size 0
@@ -48,7 +48,7 @@ public class DataUtilitiesTest_CreateNumberArray {
 	/**
 	 * Testing a simple array conversion with simple numbers (i.e. no decimals)
 	 */
-	@Test
+	@Test (timeout = 1000)
 	public void createNoDecimalArray(){
 		
 		data = new double[]{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -72,7 +72,7 @@ public class DataUtilitiesTest_CreateNumberArray {
 	/**
 	 * Testing array with more complicated values  (i.e. longer decimal values) 
 	 */
-	@Test
+	@Test (timeout = 1000)
 	public void createDecimalArray(){
 		data = new double[]{21.432, 3.232, 4.5433, 6.77, 8.99};
 		
@@ -94,7 +94,7 @@ public class DataUtilitiesTest_CreateNumberArray {
 	/**
 	 * Tests an array containing some negative values
 	 */
-	@Test
+	@Test (timeout = 1000)
 	public void createNegativeValueArray(){
 		data = new double[]{-21.432, -3.232, 4.5433, -6.77, 10.99};
 		
@@ -111,7 +111,10 @@ public class DataUtilitiesTest_CreateNumberArray {
 		}
 	}
 	
-	
+	@Test (timeout = 1000, expected=IllegalArgumentException.class)
+	public void createNullArray(){
+		DataUtilities.createNumberArray(null);
+	}
 	
 	
 
