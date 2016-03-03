@@ -22,6 +22,7 @@ public class RangeConstrainTest {
 		double expected = 7; 
 		assertEquals(expected, actual,0);
 	}
+	
 	@Test (timeout = 1000)
 	public void constrainValueGreaterThanRange() {
 		double actual = range.constrain(11);
@@ -34,6 +35,17 @@ public class RangeConstrainTest {
 		double expected = 5; 
 		assertEquals(expected, actual,0);
 	}
-	
+	@Test (timeout = 1000) 
+	public void constrainValueEqualToLowerBound() {
+		double actual = range.constrain(5);
+		double expected = 5; 
+		assertEquals(expected, actual,0);
+	}
+	@Test (timeout = 1000) 
+		public void constrainValueEqualToUpperBound() {
+			double actual = range.constrain(10);
+			double expected = 10; 
+			assertEquals(expected, actual,0);
+		}
 
 }
